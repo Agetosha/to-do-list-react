@@ -1,0 +1,303 @@
+:root {
+  /* Светлая тема (по умолчанию) */
+  --bg-color: #f5f7fa;
+  --container-bg: #ffffff;
+  --text-color: #333333;
+  --text-secondary: #666666;
+  --border-color: #eaeaea;
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --input-bg: #ffffff;
+  --button-bg: #3498db;
+  --button-hover: #2980b9;
+  --button-text: #ffffff;
+  --item-hover: #f9f9f9;
+  --completed-bg: #e8f7f0;
+  --completed-border: #d1e7dd;
+  --action-complete: #27ae60;
+  --action-delete: #e74c3c;
+  --action-restore: #3498db;
+  --empty-bg: #f8f9fa;
+  --empty-text: #95a5a6;
+  --badge-bg: #e1f0fa;
+  --badge-text: #3498db;
+}
+
+[data-theme="dark"] {
+  /* Темная тема */
+  --bg-color: #1a1a2e;
+  --container-bg: #16213e;
+  --text-color: #e6e6e6;
+  --text-secondary: #b0b0b0;
+  --border-color: #2a2a4a;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --input-bg: #0f3460;
+  --button-bg: #4361ee;
+  --button-hover: #3a56d4;
+  --button-text: #ffffff;
+  --item-hover: #1f305e;
+  --completed-bg: #1a472a;
+  --completed-border: #2d6a4f;
+  --action-complete: #2ecc71;
+  --action-delete: #e74c3c;
+  --action-restore: #3498db;
+  --empty-bg: #0f3460;
+  --empty-text: #8d8d8d;
+  --badge-bg: #0f3460;
+  --badge-text: #4cc9f0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Стили для контейнера todo-list */
+.todo-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: var(--container-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  border: 1px solid var(--border-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Заголовок приложения */
+.todo-title {
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.8rem;
+}
+
+/* Стили для формы добавления задачи */
+.todo-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.todo-input {
+  flex-grow: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  transition: all 0.2s ease;
+}
+
+.todo-input:focus {
+  outline: none;
+  border-color: var(--button-bg);
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.todo-button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.todo-button:hover {
+  background-color: var(--button-hover);
+}
+
+/* Стили для списка задач */
+.todo-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-section-title {
+  font-size: 1.2rem;
+  color: var(--text-color);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--container-bg);
+  transition: all 0.2s ease;
+}
+
+.todo-item:hover {
+  background-color: var(--item-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.todo-item-completed {
+  background-color: var(--completed-bg);
+  border-color: var(--completed-border);
+}
+
+.todo-item-text {
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.todo-item-completed .todo-item-text {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+/* Стили для кнопок действий */
+.todo-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.action-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.action-complete {
+  color: var(--action-complete);
+}
+
+.action-complete:hover {
+  background-color: rgba(39, 174, 96, 0.1);
+}
+
+.action-delete {
+  color: var(--action-delete);
+}
+
+.action-delete:hover {
+  background-color: rgba(231, 76, 60, 0.1);
+}
+
+.action-restore {
+  color: var(--action-restore);
+}
+
+.action-restore:hover {
+  background-color: rgba(52, 152, 219, 0.1);
+}
+
+/* Стили для переключателя завершенных задач */
+.toggle-completed {
+  background: none;
+  border: none;
+  color: var(--button-bg);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.toggle-completed:hover {
+  color: var(--button-hover);
+}
+
+.completed-count {
+  background-color: var(--badge-bg);
+  color: var(--badge-text);
+  font-size: 0.8rem;
+  border-radius: 12px;
+  padding: 0.2rem 0.6rem;
+  margin-left: 0.5rem;
+}
+
+/* Сообщение о пустом списке */
+.empty-message {
+  text-align: center;
+  color: var(--empty-text);
+  padding: 1rem;
+  background-color: var(--empty-bg);
+  border-radius: 8px;
+  margin-top: 0.5rem;
+}
+
+/* Переключатель темы */
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+  z-index: 1000;
+}
+
+.theme-toggle:hover {
+  background-color: var(--item-hover);
+  border-radius: 50%;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.todo-item {
+  animation: fadeIn 0.3s ease;
+}
+
+@media (max-width: 600px) {
+  .theme-toggle {
+    position: relative;
+    top: 0;
+    right: 0;
+    margin: 1rem auto;
+    display: block;
+  }
+
+  .todo-container {
+    margin-top: 0.5rem;
+  }
+}
